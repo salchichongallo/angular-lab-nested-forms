@@ -5,13 +5,18 @@ import { FormControl, FormGroup } from "@angular/forms";
   selector: "app-form-1",
   template: `
     <form [formGroup]="appForm" (submit)="submit()">
-      <div>
-        <div>
-          Favorite Color:
-          <input required formControlName="favoriteColor" type="text" />
-        </div>
+      <div class="mb-3">
+        <label class="form-label" for="favoriteColor">Favorite Color:</label>
+        <input
+          required
+          formControlName="favoriteColor"
+          type="text"
+          class="form-control"
+          id="favoriteColor"
+        />
       </div>
-      <button type="submit" style="margin-top: 2rem;">Submit</button>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <pre class="mt-3 d-block">{{ appForm.value | json }}</pre>
     </form>
   `,
 })
@@ -25,6 +30,6 @@ export class Form1Component {
   }
 
   submit() {
-    JSON.stringify(this.appForm.value, null, 2);
+    alert(JSON.stringify(this.appForm.value, null, 2));
   }
 }
