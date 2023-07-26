@@ -7,11 +7,12 @@ import { BrowserModule } from "@angular/platform-browser";
 import { AppComponent } from "./app.component";
 import { Form1Component } from "./examples/form1/form1.component";
 import { Form2Component } from "./examples/form2/form2.component";
+import { DynamicInlineComponent } from "./examples/dynamic-inline/dynamic-inline.component";
 
-const forms = [Form1Component, Form2Component];
+const forms = [Form1Component, Form2Component, DynamicInlineComponent];
 
 @NgModule({
-  declarations: [AppComponent, Form1Component, Form2Component],
+  declarations: [AppComponent, ...forms],
   imports: [
     RouterModule.forRoot([
       ...forms.map((component, index) => ({

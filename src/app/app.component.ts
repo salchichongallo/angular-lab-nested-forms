@@ -29,6 +29,11 @@ import { Component } from "@angular/core";
                 >Party planner</a
               >
             </li>
+            <li class="nav-item">
+              <a routerLink="/3" class="nav-link" routerLinkActive="active"
+                >Dynamic Inline</a
+              >
+            </li>
           </ul>
         </div>
       </div>
