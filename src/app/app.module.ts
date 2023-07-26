@@ -6,16 +6,19 @@ import { BrowserModule } from "@angular/platform-browser";
 
 import { AppComponent } from "./app.component";
 import { Form1Component } from "./examples/form1/form1.component";
+import { Form2Component } from "./examples/form2/form2.component";
+
+const forms = [Form1Component, Form2Component];
 
 @NgModule({
-  declarations: [AppComponent, Form1Component],
+  declarations: [AppComponent, Form1Component, Form2Component],
   imports: [
     RouterModule.forRoot([
-      {
-        path: "1",
+      ...forms.map((component, index) => ({
+        path: String(index + 1),
         pathMatch: "full",
-        component: Form1Component,
-      },
+        component,
+      })),
       {
         path: "**",
         redirectTo: "1",
