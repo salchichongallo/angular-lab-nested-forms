@@ -15,7 +15,6 @@ import { AbstractControl, FormArray, FormGroup } from "@angular/forms";
         >
           <app-demo-child-form
             (onFormInit)="renderForm($event)"
-            (onFormDestroy)="deleteForm($event)"
           ></app-demo-child-form>
         </app-item-frame>
       </div>
@@ -27,7 +26,6 @@ import { AbstractControl, FormArray, FormGroup } from "@angular/forms";
         >
           <app-demo-child-form
             (onFormInit)="renderForm($event)"
-            (onFormDestroy)="deleteForm($event)"
           ></app-demo-child-form>
         </app-item-frame>
       </div>
@@ -38,7 +36,6 @@ import { AbstractControl, FormArray, FormGroup } from "@angular/forms";
       >
         <app-other-child-form
           (onFormInit)="renderForm($event)"
-          (onFormDestroy)="deleteForm($event)"
         ></app-other-child-form>
       </app-item-frame>
       <div class="col-12">
@@ -77,17 +74,18 @@ export class NestedDynamicArrayComponent {
     setTimeout(() => this.bills.push(form), 0);
   }
 
-  deleteForm(_: AbstractControl) {
-    this.form.removeControl("bill");
-  }
-
   submit() {
     console.log(JSON.stringify(this.form.value, null, 2));
   }
 
   onDelete(formIndex: number) {
-    this.bills.removeAt(formIndex);
     this.formsVisibility = { ...this.formsVisibility, [formIndex]: false };
+    const lastFormIndex = this.bills.length - 1;
+    if (formIndex > lastFormIndex) {
+      this.bills.removeAt(lastFormIndex);
+    } else {
+      this.bills.removeAt(formIndex);
+    }
   }
 
   get bills() {
