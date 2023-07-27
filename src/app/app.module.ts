@@ -27,17 +27,20 @@ const components: any[] = [ChildFormComponent, OtherChildFormComponent];
 @NgModule({
   declarations: [AppComponent, ...components, ...forms, ItemFrameComponent],
   imports: [
-    RouterModule.forRoot([
-      ...forms.map((component, index) => ({
-        path: String(index + 1),
-        pathMatch: "full",
-        component,
-      })),
-      {
-        path: "**",
-        redirectTo: "1",
-      },
-    ]),
+    RouterModule.forRoot(
+      [
+        ...forms.map((component, index) => ({
+          path: String(index + 1),
+          pathMatch: "full",
+          component,
+        })),
+        {
+          path: "**",
+          redirectTo: "1",
+        },
+      ],
+      { useHash: true }
+    ),
     BrowserModule,
     CommonModule,
     ReactiveFormsModule,
