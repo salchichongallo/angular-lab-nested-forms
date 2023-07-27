@@ -10,18 +10,22 @@ import { Form2Component } from "./examples/form2/form2.component";
 import { DynamicInlineComponent } from "./examples/dynamic-inline/dynamic-inline.component";
 import { NestedDynamicComponent } from "./examples/nested-dynamic/nested-dynamic.component";
 import { ChildFormComponent } from "./examples/nested-dynamic/child-form.component";
+import { NestedDynamicArrayComponent } from "./examples/nested-dynamic-array/nested-dynamic-array.component";
+import { ItemFrameComponent } from "./examples/nested-dynamic-array/item-frame/item-frame.component";
+import { OtherChildFormComponent } from "./examples/nested-dynamic-array/other-child-form.component";
 
 const forms = [
   Form1Component,
   Form2Component,
   DynamicInlineComponent,
   NestedDynamicComponent,
+  NestedDynamicArrayComponent,
 ];
 
-const components: any[] = [ChildFormComponent];
+const components: any[] = [ChildFormComponent, OtherChildFormComponent];
 
 @NgModule({
-  declarations: [AppComponent, ...components, ...forms],
+  declarations: [AppComponent, ...components, ...forms, ItemFrameComponent],
   imports: [
     RouterModule.forRoot([
       ...forms.map((component, index) => ({

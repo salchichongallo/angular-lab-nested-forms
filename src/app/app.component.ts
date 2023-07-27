@@ -39,6 +39,11 @@ import { Component } from "@angular/core";
                 >Nested Dynamic</a
               >
             </li>
+            <li class="nav-item">
+              <a routerLink="/5" class="nav-link" routerLinkActive="active"
+                >Nested Dynamic Array</a
+              >
+            </li>
           </ul>
         </div>
       </div>
