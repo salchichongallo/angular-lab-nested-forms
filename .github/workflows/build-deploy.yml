@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-node@v2.5.2
         with:
           path: ~/.npm
-          node-version: '16.x'
+          node-version: "16.x"
 
       - name: 📦 Cache node_modules
         uses: actions/cache@v2.1.8
@@ -34,7 +34,7 @@ jobs:
         run: |
           npm ci
           npm run test:ci
-          npm run build -- --base-href /my-music-app/ --output-path dist
+          npm run build -- --base-href /angular-lab-nested-forms/ --output-path dist
 
       - name: 🚀 Deploy
         uses: JamesIves/github-pages-deploy-action@v4
