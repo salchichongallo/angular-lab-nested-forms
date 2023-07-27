@@ -34,6 +34,11 @@ import { Component } from "@angular/core";
                 >Dynamic Inline</a
               >
             </li>
+            <li class="nav-item">
+              <a routerLink="/4" class="nav-link" routerLinkActive="active"
+                >Nested Dynamic</a
+              >
+            </li>
           </ul>
         </div>
       </div>
