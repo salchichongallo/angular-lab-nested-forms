@@ -52,6 +52,15 @@ import { Component } from "@angular/core";
       <h1 class="mt-4">Welcome to {{ title }}!</h1>
       <router-outlet></router-outlet>
     </div>
+    <footer class="container d-flex justify-content-center p-4">
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://github.com/salchichongallo/angular-lab-nested-forms"
+      >
+        Source Code
+      </a>
+    </footer>
   `,
 })
 export class AppComponent {
